@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>WebAppDashBoard</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Anton&family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Anton&family=Open+Sans+Condensed:wght@300&family=Varela+Round&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/colors.css">
+    </head>
+    <body>
+        <div class="grid-container">
+            <header>
+                <div class="app-name-container">
+                    <label class="app-name">YourApp&trade;</label>
+                </div>
+                <div class="bell-icon-container">
+                    <div class="popup" onclick="myFunction()">
+                        <span class="popuptext" id="myPopup">
+                          * Victoria Chambers commented 4 hours ago
+                          <br>
+                          <br>
+                          
+                          * Your Twitter Counter is up to 10,345
+
+                        </span>
+                        <img class="bell-icon" src="icons/icon-bell.svg" alt="icon bell">
+                        <div class="dot"></div>
+                      </div>
+                      
+
+                </div>
+                <div class="user-container">
+                    <img class="user-image" src="images/member-4.jpg" alt="profile-image">
+                    <label class="profile-name">Josh Sullivan</label>
+                </div>
+            </header> <!-- /header -->
+            <nav>
+                <div class="dashboard-box">
+                    <img class="icon dashboard-icon" src="icons/icon-dashboard.svg" alt="Dashboard Icon">
+                </div>
+                <div class="member-box">
+                    <img class="icon members-icon" src="icons/icon-members.svg" alt="Members Icon">
+                </div>
+                <div class="visits-box">
+                    <img class="icon visits-icon" src="icons/icon-visits.svg" alt="Visits Icon">
+                </div>
+                <div class="settings-box">
+                    <img class="icon settings-icon" src="icons/icon-settings.svg" alt="Settings Icon">
+                </div>
+            </nav> <!-- /nav -->
+            <main>
+                <div class="dash-top">
+                    <label id="dash-label">Dashboard</label>
+                    <input id="search-input" type="search" name="search users" placeholder="Search">
+                </div> <!-- /dash-top -->
+                <div class="full-size-chart">
+                    <div class="alert-container">
+                        <div class="alert-text">Alert</div>
+                        <a href="#0" class="close-button">&times;</a>
+                      </div>
+                      <div class="lineChart-navBar">
+                        <div class="lineChart-title">
+                          <label>TRAFFIC</label>
+                        </div>
+                        <div class="nav-items-bar">
+                          <ul class="nav-items">
+                            <li id="firstElement">Hourly</li>
+                            <li>Daily</li>
+                            <li>Weekly</li>
+                            <li>Monthly</li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="graph-box">
+                        <canvas class="line-box-canvas" id="lineChart"></canvas>
+                      </div>
+                </div> <!-- /full-size-chart -->
+                <div class="half-size-charts">
+                    <div class="chart-1">
+                        <label class="chart-1-title">DAILY TRAFFIC</label>
+                        <div class="chart-1-canvas-container">
+                            <canvas class="chart-1-canvas" id="barChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-2">
+                        <label>MOBILE USERS</label>
+                        <div class="chart-2-canvas-container">
+                                <canvas class="chart-2-canvas" id="doughnutChart"></canvas>
+                        </div>
+                    </div>
+                </div> <!-- /half-size-charts -->
+                <div class="social-media-title-box">
+                        <label class="social-media-title">SOCIAL STATS</label>
+                </div>
+                <div class="social-media-info">
+                    <div class="social-1">
+                        <div class="widget-box">
+                            <div class="left-side">
+                            <div class="svg-box">
+                                <img class="svg-social-icon" src="icons/icon-twitter.svg" alt="Twitter Icon">
+                            </div>
+                            </div>
+                            <div class="right-side">
+                            <div class="social-name">
+                                <label>Twitter</label>
+                            </div>
+                            <div class="social-counter">
+                                <label>10,345</label>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-2">
+                        <div class="widget-box">
+                            <div class="left-side">
+                            <div class="svg-box">
+                                <img class="svg-social-icon-facebook" src="icons/icon-facebook.svg" alt="facebook Icon">
+                            </div>
+                            </div>
+                            <div class="right-side">
+                            <div class="social-name">
+                                <label>Facebook</label>
+                            </div>
+                            <div class="social-counter">
+                                <label>8,739</label>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-3">
+                        <div class="widget-box">
+                            <div class="left-side">
+                            <div class="svg-box">
+                                <img class="svg-social-icon" src="icons/icon-google-plus.svg" alt="Google Plus Icon">
+                            </div>
+                            </div>
+                            <div class="right-side">
+                            <div class="social-name">
+                                <label>Google+</label>
+                            </div>
+                            <div class="social-counter">
+                                <label>2,530</label>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- /social-media-info -->
+                <div class="member-info">
+                    <div class="members-1">
+                            <div class="new-members-container">
+                                    <div class="members-label">
+                                      <label>MEMBERS</label>
+                                    </div>
+                                    <div class="new-members">
+                                      <div class="members-box">
+                                        <div class="member-row member-1">
+                                          <div class="member-img-box">
+                                            <img class="member-img" src="images/member-1.jpg" alt="Member Profile Pic">
+                                          </div>
+                                          <div class="members-data">
+                                            <div class="member-name">
+                                              <label>Victoria Chambers</label>
+                                            </div>
+                                            <div class="member-email">
+                                              <label>victoria.chambers80@example.com</label>
+                                            </div>
+                                          </div>
+                                          <div class="members-date">
+                                            <label>10/15/15</label>
+                                          </div>
+                                        </div>
+                  
+                                      </div>
+                                    </div>
+                                    <div class="new-members">
+                                      <div class="members-box">
+                                        <div class="member-row">
+                                          <div class="member-img-box">
+                                            <img class="member-img" src="images/member-2.jpg" alt="Member Profile Pic">
+                                          </div>
+                                          <div class="members-data">
+                                            <div class="member-name">
+                                              <label>Dale Byrd</label>
+                                            </div>
+                                            <div class="member-email">
+                                              <label>dale.byrd52@example.com</label>
+                                            </div>
+                                          </div>
+                                          <div class="members-date">
+                                            <label>10/15/15</label>
+                                          </div>
+                                        </div>
+                  
+                                      </div>
+                                    </div>
+                                    <div class="new-members">
+                                      <div class="members-box">
+                                        <div class="member-row">
+                                          <div class="member-img-box">
+                                            <img class="member-img" src="images/member-3.jpg" alt="Member Profile Pic">
+                                          </div>
+                                          <div class="members-data">
+                                            <div class="member-name">
+                                              <label>Dawn Wood</label>
+                                            </div>
+                                            <div class="member-email">
+                                              <label>dawn.wood16@example.com</label>
+                                            </div>
+                                          </div>
+                                          <div class="members-date">
+                                            <label>10/15/15</label>
+                                          </div>
+                                        </div>
+                  
+                                      </div>
+                                    </div>
+                                    <div class="new-members">
+                                      <div class="members-box">
+                                        <div class="member-row">
+                                          <div class="member-img-box">
+                                            <img class="member-img" src="images/member-4.jpg" alt="Member Profile Pic">
+                                          </div>
+                                          <div class="members-data">
+                                            <div class="member-name">
+                                              <label>Dan Oliver</label>
+                                            </div>
+                                            <div class="member-email">
+                                              <label>dan.oliver82@example.com</label>
+                                            </div>
+                                          </div>
+                                          <div class="members-date">
+                                            <label>10/15/15</label>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                    </div>
+                    </div>
+                    <div class="members-2">
+                        <div class="new-members-container">
+                            <div class="members-label">
+                                <label>ACTIVITY</label>
+                            </div>
+                            <div class="new-members">
+                                <div class="members-box">
+                                <div class="member-row member-1">
+                                    <div class="member-img-box">
+                                    <img class="member-img" src="images/member-1.jpg" alt="Member Profile Pic">
+                                    </div>
+                                    <div class="members-data">
+                                    <div class="member-name">
+                                        <label>Victoria Chambers commented on YourApp's SEO Tips</label>
+                                    </div>
+                                    <div class="member-email">
+                                        <label>4 hours ago</label>
+                                    </div>
+                                    </div>
+                                    <div class="members-date">
+                                    <label class="next"> > </label>
+                                    </div>
+                                </div>
+        
+                                </div>
+                            </div>
+                            <div class="new-members">
+                                <div class="members-box">
+                                <div class="member-row">
+                                    <div class="member-img-box">
+                                    <img class="member-img" src="images/member-2.jpg" alt="Member Profile Pic">
+                                    </div>
+                                    <div class="members-data">
+                                    <div class="member-name">
+                                        <label>Dale Byrd liked the post Facebook's Changes for 2016 </label>
+                                    </div>
+                                    <div class="member-email">
+                                        <label>5 hours ago</label>
+                                    </div>
+                                    </div>
+                                    <div class="members-date">
+                                    <label class="next"> > </label>
+                                    </div>
+                                </div>
+        
+                                </div>
+                            </div>
+                            <div class="new-members">
+                                <div class="members-box">
+                                <div class="member-row">
+                                    <div class="member-img-box">
+                                    <img class="member-img" src="images/member-3.jpg" alt="Member Profile Pic">
+                                    </div>
+                                    <div class="members-data">
+                                    <div class="member-name">
+                                        <label>Dawn Wood commented on Facebook's Changes for 2016</label>
+                                    </div>
+                                    <div class="member-email">
+                                        <label>5 hours ago</label>
+                                    </div>
+                                    </div>
+                                    <div class="members-date">
+                                    <label class="next"> > </label>
+                                    </div>
+                                </div>
+        
+                                </div>
+                            </div>
+                            <div class="new-members">
+                                <div class="members-box">
+                                <div class="member-row">
+                                    <div class="member-img-box">
+                                    <img class="member-img" src="images/member-4.jpg" alt="Member Profile Pic">
+                                    </div>
+                                    <div class="members-data">
+                                    <div class="member-name">
+                                        <label>Dan Oliver posted YourApp's SEO Tips</label>
+                                    </div>
+                                    <div class="member-email">
+                                        <label>1 day ago</label>
+                                    </div>
+                                    </div>
+                                    <div class="members-date">
+                                    <label class="next"> > </label>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                    </div>
+                </div> <!-- /member-info -->
+                <div class="message-and-settings">
+                    <div class="message">
+                        <label class="message-title-label">MESSAGE USER</label>
+                      <div class="search-box-container">
+                        <div class="autocomplete">
+                          <input class="search" id="myInput" type="text" name="search users" autocomplete="off" placeholder="Type User">
+                        </div>  
+                      </div>
+                      <div class="message-field-container">
+                        <textarea class="messages" name="message user" placeholder="Message for User"></textarea>
+                      </div>
+                      <div class="send-box">
+                        <input class="send-button inputButton" type="button" name="send" value="SEND">
+                      </div>
+                    </div>
+                    <div class="settings">
+                        <label class="message-title-label">SETTINGS</label>
+                      <div class="settings-row-2">
+                        <div class="left-box">
+                          <label>Send Email Notifications</label>
+                        </div>
+                        <div class="right-box">
+                          <div class="onoffswitch">
+                            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" value= 'on' tabindex="0" checked>
+                            <label class="onoffswitch-label" id="myonoffswitchLabel" for="myonoffswitch">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="settings-row-3">
+                        <div class="left-box">
+                          <label for="notifcations">Send Profile Public</label>
+                        </div>
+                        <div class="right-box">
+                          <div class="onoffswitch">
+                            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch2" tabindex="0" checked>
+                            <label class="onoffswitch-label" for="myonoffswitch2">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="settings-row-4">
+                          <select name="timezone" id="timezone">
+                            <option disabled="disabled" value="none">Select Timezone</option>
+                            <option value="EST">EST</option>
+                            <option value="UTC">UTC</option>
+                            <option value="Central">Central</option>
+                          </select>
+                      </div>
+                      <div class="settings-row-5">
+                        <div class="left-box-button">
+                          <input id="saveB" class="inputButton" type="button" name="Save" value="SAVE">
+                        </div>
+                        <div class="right-box-button">
+                          <input id="cancelB" class="inputButton" type="button" name="Cancel" value="CANCEL">
+                        </div>
+                      </div>
+                    </div>
+                </div> <!-- /message-and-settings -->
+            </main> <!-- /main -->
+        </div> <!-- /grid-container-->
+        <script src="js/app.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    </body>   
+ </html>
