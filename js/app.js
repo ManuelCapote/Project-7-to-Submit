@@ -189,26 +189,36 @@ autocomplete(document.getElementById("myInput"), userArray);
 
 // Send Button Function
 
+
+function findUser(typedUser) {
+  var counter = 0;
+  for(let i = 0; i <= userArray.length; i++) {
+    if(typedUser.value == userArray[i]){
+      return typedUser;
+    } else {
+      counter = i;
+
+  }
+  if(counter > 3) {
+    return alert('User not found');
+    }
+  }
+}
+
 const typeUser = user.firstElementChild.firstElementChild;
 
 sendButton.onclick = function () {
-  for(let i = 0; i <= userArray.length; i++) {
-    if(typeUser.value == userArray[i])
+  
+    findUser(typeUser);
      {  if(messageArea.firstElementChild.value != "") {
         alert('Message Sent');
         typeUser.value = "";
         messageArea.firstElementChild.value = "";
-        break;
      } else {
         alert('Message Field can not be empty');
-        break;
       }
-    } else {
-      alert('Error: Select User');
-      break;
     }
   }
-}
 
 
 // Line Chart Function
@@ -372,4 +382,4 @@ let doughnutChart = new Chart(mobileUsersChart, {
                 }
       }
     }
-);
+  );
