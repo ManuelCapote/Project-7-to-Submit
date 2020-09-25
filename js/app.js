@@ -12,7 +12,7 @@ var trafficOptions = trafficNavBar.firstElementChild.children;
 
 //Traffic Data Variables
 const hLabel = ["1hr", "2hr", "3hr", "4hr", "5hr", "6hr", "7hr", "8ht" ];
-const hData = ["1", "2", "1.75", "3.5", "2.8", "4.3", "6.4", "6.8", "9", "10"];
+const hData = ["1", "2", "1.75", "3.5", "2.8", "4.3", "6.4", "6.8"];
 
 const dLabel = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 const dData = ["10", "20", "30", "40", "50", "60", "70", "80", "90", "100"];
