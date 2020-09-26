@@ -36,16 +36,22 @@ keySaveSettingsButton.onclick = function () {
   var value2 = keyOnOffSwitchInput2.checked;
   var value3 = keyTimezoneInput.value;
 
-  console.log(value1);
-  console.log(value2);
-  console.log(value3);
+  if(value3 == 'ST') {
+    alert("Please Select a Timezone");
+  } else {
 
-  localStorage.setItem("Email Notifications", value1);
-  localStorage.setItem("Public Profile", value2);
-  localStorage.setItem("Timezone", value3);
+    console.log(value1);
+    console.log(value2);
+    console.log(value3);
+
+    localStorage.setItem("Email Notifications", value1);
+    localStorage.setItem("Public Profile", value2);
+    localStorage.setItem("Timezone", value3);
+  }
 };
 
 window.onload = function() {
+
   keyTimezoneInput.value = localStorage.getItem('Timezone');
   var temp1 = localStorage.getItem("Email Notifications");
   var temp2 = localStorage.getItem("Public Profile");
@@ -194,13 +200,13 @@ function findUser(typedUser) {
   var counter = 0;
   for(let i = 0; i <= userArray.length; i++) {
     if(typedUser.value == userArray[i]){
-      return typedUser;
+      return true;
     } else {
       counter = i;
 
   }
   if(counter > 3) {
-    return alert('User not found');
+    return false;
     }
   }
 }
@@ -209,15 +215,17 @@ const typeUser = user.firstElementChild.firstElementChild;
 
 sendButton.onclick = function () {
   
-    findUser(typeUser);
-     {  if(messageArea.firstElementChild.value != "") {
+  if(findUser(typeUser)) {
+      if(messageArea.firstElementChild.value != "") {
         alert('Message Sent');
         typeUser.value = "";
         messageArea.firstElementChild.value = "";
      } else {
         alert('Message Field can not be empty');
       }
-    }
+    } else if(typeUser.value == ""){
+      alert('User field can not be empty');
+    } else alert('User not found'); 
   }
 
 

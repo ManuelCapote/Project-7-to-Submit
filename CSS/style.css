@@ -303,7 +303,7 @@ textarea:focus, input:focus{
       display: flex;
       justify-content: flex-start;
       align-items: center;
-      width: 20%;
+      width: 30%;
     }
     .nav-items-bar {
       display: flex;
